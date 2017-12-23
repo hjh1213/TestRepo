@@ -20,12 +20,12 @@ int patition(int *A, int p, int r){
   //遍历数组, 将比x小的放在前面、比x大的留在后面
   for(i = p; i < r; i++){
     if(A[i] < x){
-      swap(A[j++], A[i]);
+      swap(&A[++j], &A[i]);
     }
   }
 
   //最后把x插到中间, 返回它所在的位置(此时整个数组以x为分界点, 在x前面的比x小, 在x后面的不小于x, 这是快速排序的核心)
-  swap(A[j++], A[r]);
+  swap(&A[++j], &A[r]);
   return j;
 }
 
@@ -49,7 +49,7 @@ int main(){
 
   //输入数列
   for(i = 0; i < n; i++){
-    scanf("%d", A[i]);
+    scanf("%d", &A[i]);
   }
 
   //调用快速排序函数
